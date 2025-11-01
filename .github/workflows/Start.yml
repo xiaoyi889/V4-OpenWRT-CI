@@ -11,10 +11,6 @@ on:
         description: 'Runner On ubuntu-latest or self-hosted'
         required: true
         type: string
-      package:
-        description: 'Manually adjust packages, separate with "\n".'
-        required: false
-        type: string
       test:
         description: 'Only output configuration files, do not build firmware.'
         required: true
@@ -44,15 +40,8 @@ jobs:
     with:
       runner: ${{ inputs.runner || 'ubuntu-latest' }}
       WRT_CONFIG: ${{matrix.CONFIG}}
-      WRT_THEME: aurora
-      WRT_NAME: OWRT
-      WRT_SSID: OWRT
-      WRT_WORD: 12345678
-      WRT_IP: 192.168.10.1
-      WRT_PW: 无
       WRT_REPO: https://github.com/${{matrix.SOURCE}}.git
       WRT_BRANCH: ${{matrix.BRANCH}}
       WRT_SOURCE: ${{matrix.SOURCE}}
-      WRT_PACKAGE: ${{inputs.package}}
-      WRT_TEST: ${{inputs.test}}
+      test: ${{inputs.test}}
 
