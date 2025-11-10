@@ -74,6 +74,7 @@ jobs:
           fi
 
           sudo chown $USER:$USER $GITHUB_WORKSPACE
+          sudo chown $USER:$USER $GITHUB_WORKSPACE/${{inputs.source}}/${{inputs.branch}}
 
       - name: Check Caches
         id: check-cache
