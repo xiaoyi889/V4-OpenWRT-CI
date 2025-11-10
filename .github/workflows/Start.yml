@@ -35,7 +35,7 @@ jobs:
       fail-fast: false
       matrix:
         CONFIG: [IPQ60XX-WIFI-YES, IPQ60XX-WIFI-NO]
-        SOURCE: [Nanashi-Development/LiBwrt]
+        SOURCE: [LiBwrt/openwrt-6.x]
         BRANCH: [k6.12-nss]
     with:
       runner: ${{ inputs.runner || 'self-hosted' }}
