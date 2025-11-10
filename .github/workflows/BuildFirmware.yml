@@ -73,8 +73,7 @@ jobs:
             git clone --depth=1 --branch $WRT_BRANCH $WRT_REPO $GITHUB_WORKSPACE/${{inputs.source}}/${{inputs.branch}}
           fi
 
-          sudo chown $USER:$USER $GITHUB_WORKSPACE
-          sudo chown $USER:$USER $GITHUB_WORKSPACE/${{inputs.source}}/${{inputs.branch}}
+          sudo chown -R $USER:$USER $GITHUB_WORKSPACE
 
       - name: Check Caches
         id: check-cache
@@ -125,7 +124,7 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE/${{inputs.source}}/${{inputs.branch}}
 
-          cat $GITHUB_WORKSPACE/Config/$WRT_CONFIG.txt $GITHUB_WORKSPACE/Config/DIFF.txt >> .config          
+          cat $GITHUB_WORKSPACE/Config/$WRT_CONFIG.txt $GITHUB_WORKSPACE/Config/DIFF.txt >> .config
 
           $GITHUB_WORKSPACE/Scripts/Settings.sh
 
