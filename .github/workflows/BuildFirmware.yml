@@ -134,6 +134,7 @@ jobs:
         if: env.CONFIG_ONLY != 'true'
         run: |
           cd $GITHUB_WORKSPACE/${{inputs.source}}/${{inputs.branch}}
+          cat -n .config
 
           make download -j$(nproc)
 
